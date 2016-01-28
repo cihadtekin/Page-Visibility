@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <pre></pre>
+  <button>Clear</button>
+  <script type="text/javascript" src="page-visibility.js"></script>
+  <script type="text/javascript">
+  function cb(visible) {
+    document.getElementsByTagName('pre')[0].innerText += (new Date()).toTimeString() + ' ' + (visible ? 'visible' : 'hidden') + "\n";
+    document.title = visible ? 'Visible' : 'Hidden';
+  }
+  window.onload = function() {
+    window.visibility.change(cb);
+    cb( window.visibility.isVisible() );
+  }
+  document.getElementsByTagName('button')[0].onclick = function() {
+    document.getElementsByTagName('pre')[0].innerText = '';
+  }
+  </script>
+</body>
+</html>
